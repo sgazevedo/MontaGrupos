@@ -1,0 +1,11 @@
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\bin\Debug\netcoreapp2.1\MontaGrupos.deps.json
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\bin\Debug\netcoreapp2.1\MontaGrupos.runtimeconfig.json
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\bin\Debug\netcoreapp2.1\MontaGrupos.runtimeconfig.dev.json
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\bin\Debug\netcoreapp2.1\MontaGrupos.dll
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\bin\Debug\netcoreapp2.1\MontaGrupos.pdb
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.csprojAssemblyReference.cache
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.csproj.CoreCompileInputs.cache
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.AssemblyInfoInputs.cache
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.AssemblyInfo.cs
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.dll
+C:\Users\silvio.azevedo\source\repos\MontaGrupos\obj\Debug\netcoreapp2.1\MontaGrupos.pdb
