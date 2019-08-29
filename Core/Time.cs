@@ -2,22 +2,25 @@ using System;
 
 namespace MontaGrupos.Core
 {
-  public class Time
-  {
-    public string Nome { get; set; }
-
-    public Time() { }
-
-    public Time(string nome)
+    public class Time
     {
-      Nome = nome;
-    }
+        public string Nome { get; set; }
 
-    public override string ToString()
-    {
-      return Nome;
-    }
+        public Time()
+        {
+            Nome = "";
+        }
 
-  }
+        public Time(string nome)
+        {
+            Nome = nome;
+        }
+
+        public override string ToString()
+        {
+            return Nome;
+        }
+
+    }
 }
 
