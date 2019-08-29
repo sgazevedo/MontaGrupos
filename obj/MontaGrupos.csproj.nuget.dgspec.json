@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
+    "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
+    "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "projectUniqueName": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
         "projectName": "MontaGrupos",
-        "projectPath": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "projectPath": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
         "packagesPath": "C:\\Users\\silvio.azevedo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\obj\\",
+        "outputPath": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
