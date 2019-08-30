@@ -70,7 +70,7 @@ namespace MontaGrupos.Core
             return timeSorteado;
         }
 
-        public void MontarPotes()
+        public void MontarPotes(List<Time> lista)
         {
             // TODO - implementar rotina para importar arquivo e montar os potes
         }

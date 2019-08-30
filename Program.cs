@@ -8,7 +8,7 @@ namespace MontaGrupos
     {
         static void Main(string[] args)
         {
-            var eurocopa = new Eurocopa(quantidadePote: 4, quantidadeGrupo: 8, tamanhoPote: 8, tamanhoGrupo: 4);
+            var eurocopa = new Eurocopa();
             eurocopa.Potes[1].Inserir(
               new Selecao("Alemanha", EConfederacao.UEFA, 100),
               new Selecao("Itália", EConfederacao.UEFA, 100),

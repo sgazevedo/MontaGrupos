@@ -3,6 +3,7 @@ namespace MontaGrupos.Core
 {
     public class Campeonato
     {
+        public string Nome { get; set; }
         private int QuantidadePotes;
         private int QuantidadeGrupos;
         private int TamanhoPotes;
@@ -11,36 +12,34 @@ namespace MontaGrupos.Core
 
         public Grupo[] Grupos { get; private set; }
 
-        public Campeonato()
+        // public Campeonato()
+        // {
+        //     Nome = "";
+        //     QuantidadePotes = 4;
+        //     QuantidadeGrupos = 8;
+        //     TamanhoPotes = 8;
+        //     TamanhoGrupos = 4;
+        //     Inicializar();
+        // }
+
+        public Campeonato(string nomeCampeonato, int quantidadePote, int quantidadeGrupo, int tamanhoPote, int tamanhoGrupo)
         {
-            QuantidadePotes = 4;
-            QuantidadeGrupos = 8;
-            TamanhoPotes = 8;
-            TamanhoGrupos = 4;
-            CriarPotes();
-            CriarGrupos();
-        }
-        public Campeonato(int quantidadePote, int quantidadeGrupo, int tamanhoPote, int tamanhoGrupo)
-        {
+            Nome = nomeCampeonato;
             QuantidadePotes = quantidadePote;
             QuantidadeGrupos = quantidadeGrupo;
             TamanhoPotes = tamanhoPote;
             TamanhoGrupos = tamanhoGrupo;
-            CriarPotes();
-            CriarGrupos();
+            Inicializar();
         }
 
-        private void CriarPotes()
+        private void Inicializar()
         {
             Potes = new Pote[QuantidadePotes + 1];
             for (int i = 1; i <= QuantidadePotes; i++)
             {
                 Potes[i] = new Pote(nome: $"Pote {i}", tamanho: TamanhoPotes);
             }
-        }
 
-        private void CriarGrupos()
-        {
             Grupos = new Grupo[QuantidadeGrupos + 1];
             for (int i = 1; i <= QuantidadeGrupos; i++)
             {
@@ -89,6 +88,21 @@ namespace MontaGrupos.Core
             }
 
             return listaDeGrupos;
+        }
+
+        public void MontarPotes(string nomeArquivo)
+        {
+            // TODO - montar os potes importando de arquivo
+        }
+
+        public void MontarGrupos()
+        {
+            // TODO - montar os grupos armazenados em pote
+        }
+
+        public void SalvarGrupos()
+        {
+            // TODO - salvar os grupos em arquivo
         }
     }
 }
