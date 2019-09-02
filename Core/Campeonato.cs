@@ -1,4 +1,4 @@
-
+using System;
 namespace MontaGrupos.Core
 {
     public class Campeonato
@@ -53,9 +53,9 @@ namespace MontaGrupos.Core
 
             while (Potes[numeroPote].ListaTimes.Count > 0)
             {
-                var selecaoSorteada = (Selecao)Potes[numeroPote].Sortear();
-                Potes[numeroPote].ListaTimes.Remove(selecaoSorteada);
-                Grupos[numeroGrupo].Inserir(selecaoSorteada);
+                var timeSorteado = Potes[numeroPote].Sortear();
+                Potes[numeroPote].ListaTimes.Remove(timeSorteado);
+                Grupos[numeroGrupo].Inserir(timeSorteado);
                 numeroGrupo++;
             }
         }
@@ -92,17 +92,39 @@ namespace MontaGrupos.Core
 
         public void MontarPotes(string nomeArquivo)
         {
-            // TODO - montar os potes importando de arquivo
+            Arquivo.ImportarArquivo(nomeArquivo, out var listaTimes);
+
+            var numeroPote = 1;
+            foreach (var time in listaTimes)
+            {
+                if (Potes[numeroPote].ListaTimes.Count == TamanhoPotes)
+                {
+                    numeroPote++;
+                }
+
+                if (numeroPote <= QuantidadePotes)
+                {
+                    Potes[numeroPote].Inserir(time);
+                }
+                else
+                {
+                    break;
+                }
+            }
         }
 
         public void MontarGrupos()
         {
-            // TODO - montar os grupos armazenados em pote
+            for (var numeroPote = 1; numeroPote <= QuantidadePotes; numeroPote++)
+            {
+                SortearPote(numeroPote);
+            }
         }
 
         public void SalvarGrupos()
         {
-            // TODO - salvar os grupos em arquivo
+            var nomeArquivo = @"~/" + Nome + ".txt";
+            Arquivo.EscreverArquivo(nomeArquivo, new string[] { ListarGrupos() });
         }
     }
 }

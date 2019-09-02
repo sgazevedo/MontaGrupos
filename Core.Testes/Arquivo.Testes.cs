@@ -8,7 +8,7 @@ public class ArquivoTestes
     [Fact]
     public void TesteEscreverArquivo()
     {
-        var nomeArquivo = @"~/eurocopa_2020.txt";
+        var nomeArquivo = @"~/eurocopa.txt";
         var selecoes = new string[] {
             "Alemanha",
             "Itália",
@@ -26,7 +26,7 @@ public class ArquivoTestes
     [Fact]
     public void TesteImportarArquivo()
     {
-        var nomeArquivo = @"~/eurocopa_2020.txt";
+        var nomeArquivo = @"~/eurocopa.txt";
         Arquivo.ImportarArquivo(nomeArquivo, out var selecoes);
         Assert.True(selecoes.Count > 0);
     }

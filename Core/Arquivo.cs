@@ -25,7 +25,10 @@ namespace MontaGrupos.Core
 
             if (!File.Exists(path))
             {
-                File.CreateText(path);
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.Close();
+                }
             }
 
             if (conteudo.Length > 0)
@@ -52,10 +55,13 @@ namespace MontaGrupos.Core
                 {
                     using (StreamReader sr = new StreamReader(path))
                     {
-                        var nomeTime = sr.ReadToEnd();
-                        if (nomeTime.Trim().Length > 0)
+                        while (sr.Peek() >= 0)
                         {
-                            listaTimes.Add(new Time(nomeTime.Trim()));
+                            var nomeTime = sr.ReadLine();
+                            if (nomeTime.Trim().Length > 0)
+                            {
+                                listaTimes.Add(new Time(nomeTime.Trim()));
+                            }
                         }
                     }
                 }
