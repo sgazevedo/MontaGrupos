@@ -8,3 +8,5 @@ Equador
 Peru
 Bolívia 
 Venezuela
+Convidado1
+Convidado2

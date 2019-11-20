@@ -1,49 +1,39 @@
-using System;
+using System.Collections.Generic;
+
 namespace MontaGrupos.Core
 {
-    public class Campeonato
+    public class Campeonato : ICampeonato
     {
-        public string Nome { get; set; }
-        private int QuantidadePotes;
-        private int QuantidadeGrupos;
-        private int TamanhoPotes;
-        private int TamanhoGrupos;
+        public ParametrosCampeonato _parametrosCampeonato;
         public Pote[] Potes { get; private set; }
-
         public Grupo[] Grupos { get; private set; }
-
-        // public Campeonato()
-        // {
-        //     Nome = "";
-        //     QuantidadePotes = 4;
-        //     QuantidadeGrupos = 8;
-        //     TamanhoPotes = 8;
-        //     TamanhoGrupos = 4;
-        //     Inicializar();
-        // }
-
+        public Campeonato(ParametrosCampeonato parametrosCampeonato)
+        {
+            _parametrosCampeonato = parametrosCampeonato;
+            Inicializar();
+        }
         public Campeonato(string nomeCampeonato, int quantidadePote, int quantidadeGrupo, int tamanhoPote, int tamanhoGrupo)
         {
-            Nome = nomeCampeonato;
-            QuantidadePotes = quantidadePote;
-            QuantidadeGrupos = quantidadeGrupo;
-            TamanhoPotes = tamanhoPote;
-            TamanhoGrupos = tamanhoGrupo;
+            // Nome = nomeCampeonato;
+            // QuantidadePotes = quantidadePote;
+            // QuantidadeGrupos = quantidadeGrupo;
+            // TamanhoPotes = tamanhoPote;
+            // TamanhoGrupos = tamanhoGrupo;
             Inicializar();
         }
 
         private void Inicializar()
         {
-            Potes = new Pote[QuantidadePotes + 1];
-            for (int i = 1; i <= QuantidadePotes; i++)
+            Potes = new Pote[_parametrosCampeonato.QuantidadePotes + 1];
+            for (int i = 1; i <= _parametrosCampeonato.QuantidadePotes; i++)
             {
-                Potes[i] = new Pote(nome: $"Pote {i}", tamanho: TamanhoPotes);
+                Potes[i] = new Pote(nome: $"Pote {i}", tamanho: _parametrosCampeonato.TamanhoPotes);
             }
 
-            Grupos = new Grupo[QuantidadeGrupos + 1];
-            for (int i = 1; i <= QuantidadeGrupos; i++)
+            Grupos = new Grupo[_parametrosCampeonato.QuantidadeGrupos + 1];
+            for (int i = 1; i <= _parametrosCampeonato.QuantidadeGrupos; i++)
             {
-                Grupos[i] = new Grupo(nome: $"Grupo {i}", tamanho: TamanhoGrupos);
+                Grupos[i] = new Grupo(nome: $"Grupo {i}", tamanho: _parametrosCampeonato.TamanhoGrupos);
             }
         }
 
@@ -89,6 +79,8 @@ namespace MontaGrupos.Core
 
             return listaDeGrupos;
         }
+        public void MontarPotes() =>
+            MontarPotes(_parametrosCampeonato.NomeArquivoEntrada);
 
         public void MontarPotes(string nomeArquivo)
         {
@@ -97,12 +89,12 @@ namespace MontaGrupos.Core
             var numeroPote = 1;
             foreach (var time in listaTimes)
             {
-                if (Potes[numeroPote].ListaTimes.Count == TamanhoPotes)
+                if (Potes[numeroPote].ListaTimes.Count == _parametrosCampeonato.TamanhoPotes)
                 {
                     numeroPote++;
                 }
 
-                if (numeroPote <= QuantidadePotes)
+                if (numeroPote <= _parametrosCampeonato.QuantidadePotes)
                 {
                     Potes[numeroPote].Inserir(time);
                 }
@@ -115,7 +107,7 @@ namespace MontaGrupos.Core
 
         public void MontarGrupos()
         {
-            for (var numeroPote = 1; numeroPote <= QuantidadePotes; numeroPote++)
+            for (var numeroPote = 1; numeroPote <= _parametrosCampeonato.QuantidadePotes; numeroPote++)
             {
                 SortearPote(numeroPote);
             }
@@ -123,7 +115,7 @@ namespace MontaGrupos.Core
 
         public void SalvarGrupos()
         {
-            var nomeArquivo = @"~/" + Nome + ".txt";
+            var nomeArquivo = @"~/" + _parametrosCampeonato.Nome + ".txt";
             Arquivo.EscreverArquivo(nomeArquivo, new string[] { ListarGrupos() });
         }
     }

@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
+    "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
   },
   "projects": {
-    "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
+    "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "projectUniqueName": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
         "projectName": "MontaGrupos",
-        "projectPath": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
-        "packagesPath": "C:\\Users\\silvio.azevedo\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\obj\\",
+        "projectPath": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "packagesPath": "C:\\Users\\Núbia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\silvio.azevedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Núbia\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -45,11 +45,20 @@
               "target": "Package",
               "version": "[5.9.0, )"
             },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[3.0.1, )"
+            },
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[16.3.0-preview-20190808-03, )"
             },
             "Microsoft.NETCore.App": {
+              "suppressParent": "All",
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
