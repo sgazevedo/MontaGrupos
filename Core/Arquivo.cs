@@ -43,9 +43,9 @@ namespace MontaGrupos.Core
             }
         }
 
-        public static void ImportarArquivo(string nomeArquivo, out List<Time> listaTimes)
+        public static void ImportarArquivo(string nomeArquivo, out List<ITime> listaTimes)
         {
-            listaTimes = new List<Time>();
+            listaTimes = new List<ITime>();
 
             var path = nomeArquivo.ParseHome();
 

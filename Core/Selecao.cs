@@ -1,19 +1,19 @@
+// TODO - Implementar struct Historico e nessa classe List<Historico> HistoricoPontuacao
 using System;
 
 namespace MontaGrupos.Core
 {
-    // AFC = Ásia, CAF = África, CONCACAF = América Central e do Norte, CONMEBOL = América do Sul, OFC = Oceania, UEFA = Europa
-    public enum Confederacao { Todas, Indefinido, AFC, CAF, CONCACAF, CONMEBOL, OFC, UEFA }
-
-    public class Selecao : Time
+    public class Selecao : ITime
     {
+        public string Nome { get; set; }
         public Confederacao Confederacao { get; private set; }
         public int Pontuacao { get; set; }
+        //public List<Historico> HistoricoPontuacao {get; set; }
 
         public Selecao(string nome)
         {
             Nome = nome;
-            Confederacao = Confederacao.Indefinido;
+            Confederacao = Confederacao.INDEFINIDO;
             Pontuacao = 0;
         }
 
@@ -24,10 +24,7 @@ namespace MontaGrupos.Core
             Pontuacao = pontuacao;
         }
 
-        public override string ToString()
-        {
-            return $"{base.ToString()}";
-        }
+        public string ObterNome() =>
+            Nome;
     }
 }
-

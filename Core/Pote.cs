@@ -5,24 +5,24 @@ namespace MontaGrupos.Core
     public class Pote
     {
         public string Nome { get; set; }
-        public List<Time> ListaTimes { get; set; }
+        public List<ITime> ListaTimes { get; set; }
         public int Tamanho { get; private set; }
 
         public Pote()
         {
             Nome = "";
-            ListaTimes = new List<Time>();
+            ListaTimes = new List<ITime>();
             Tamanho = 0;
         }
 
         public Pote(string nome, int tamanho)
         {
             Nome = nome;
-            ListaTimes = new List<Time>();
+            ListaTimes = new List<ITime>();
             Tamanho = tamanho;
         }
 
-        public void Inserir(Time time)
+        public void Inserir(ITime time)
         {
             if (ListaTimes.Count <= Tamanho)
             {
@@ -34,7 +34,7 @@ namespace MontaGrupos.Core
             }
         }
 
-        public void Inserir(params Time[] times)
+        public void Inserir(params ITime[] times)
         {
             if (times.Length > 0 && times.Length <= Tamanho)
             {
@@ -58,19 +58,19 @@ namespace MontaGrupos.Core
                 {
                     timesEmLista += " | ";
                 }
-                timesEmLista = timesEmLista + time.ToString();
+                timesEmLista = timesEmLista + time.ObterNome();
             }
             return $"{Nome}: " + (timesEmLista.Trim().Length > 0 ? timesEmLista.Trim() : "Nenhum time cadastrado");
         }
 
-        public Time Sortear()
+        public ITime Sortear()
         {
             Sorteio.Executar(ListaTimes, out var timeSorteado);
             ListaTimes.Remove(timeSorteado);
             return timeSorteado;
         }
 
-        public void MontarPotes(List<Time> lista)
+        public void MontarPotes(List<ITime> lista)
         {
             // TODO - implementar rotina para importar arquivo e montar os potes
         }

@@ -5,24 +5,24 @@ namespace MontaGrupos.Core
     public class Grupo
     {
         public string Nome { get; set; }
-        public List<Time> ListaTimes { get; private set; }
+        public List<ITime> ListaTimes { get; private set; }
         public int Tamanho { get; private set; }
 
         public Grupo()
         {
             Nome = "";
-            ListaTimes = new List<Time>();
+            ListaTimes = new List<ITime>();
             Tamanho = 0;
         }
 
         public Grupo(string nome, int tamanho)
         {
             Nome = nome;
-            ListaTimes = new List<Time>();
+            ListaTimes = new List<ITime>();
             Tamanho = tamanho;
         }
 
-        public void Inserir(Time time)
+        public void Inserir(ITime time)
         {
             if (ListaTimes.Count <= Tamanho)
             {
@@ -34,7 +34,7 @@ namespace MontaGrupos.Core
             }
         }
 
-        public void Inserir(params Time[] times)
+        public void Inserir(params ITime[] times)
         {
             if (times.Length > 0 && times.Length <= Tamanho)
             {
@@ -58,7 +58,7 @@ namespace MontaGrupos.Core
                 {
                     timesEmGrupo += " | ";
                 }
-                timesEmGrupo = timesEmGrupo + time.ToString();
+                timesEmGrupo = timesEmGrupo + time.ObterNome();
             }
             return $"{Nome}: " + (timesEmGrupo.Trim().Length > 0 ? timesEmGrupo.Trim() : "Nenhum time cadastrado");
         }

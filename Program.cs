@@ -15,7 +15,7 @@ namespace MontaGrupos
             var campeonatos = new Campeonatos();
             configuration.Bind("Campeonatos", campeonatos);
 
-            var campeonato = new Campeonato(campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
+            var campeonato = new Campeonato(campeonatos.CampeonatosSelecoes.WorldCup);
             campeonato.MontarPotes();
             Console.WriteLine(campeonato.ListarPotes());
             campeonato.MontarGrupos();

@@ -5,7 +5,7 @@ namespace MontaGrupos.Core
 {
     public static class Sorteio
     {
-        public static void Executar(List<Time> pote, out Time timeSorteado)
+        public static void Executar(List<ITime> pote, out ITime timeSorteado)
         {
             timeSorteado = null;
 

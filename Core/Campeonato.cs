@@ -12,15 +12,6 @@ namespace MontaGrupos.Core
             _parametrosCampeonato = parametrosCampeonato;
             Inicializar();
         }
-        public Campeonato(string nomeCampeonato, int quantidadePote, int quantidadeGrupo, int tamanhoPote, int tamanhoGrupo)
-        {
-            // Nome = nomeCampeonato;
-            // QuantidadePotes = quantidadePote;
-            // QuantidadeGrupos = quantidadeGrupo;
-            // TamanhoPotes = tamanhoPote;
-            // TamanhoGrupos = tamanhoGrupo;
-            Inicializar();
-        }
 
         private void Inicializar()
         {
@@ -79,12 +70,10 @@ namespace MontaGrupos.Core
 
             return listaDeGrupos;
         }
-        public void MontarPotes() =>
-            MontarPotes(_parametrosCampeonato.NomeArquivoEntrada);
 
-        public void MontarPotes(string nomeArquivo)
+        public void MontarPotes()
         {
-            Arquivo.ImportarArquivo(nomeArquivo, out var listaTimes);
+            Arquivo.ImportarArquivo(_parametrosCampeonato.NomeArquivoEntrada, out var listaTimes);
 
             var numeroPote = 1;
             foreach (var time in listaTimes)
