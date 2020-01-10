@@ -4,15 +4,16 @@ namespace MontaGrupos.Core
 {
     public class Campeonato : ICampeonato
     {
+        public ConexaoRavenDB _conexaoDB;
         public ParametrosCampeonato _parametrosCampeonato;
         public Pote[] Potes { get; private set; }
         public Grupo[] Grupos { get; private set; }
-        public Campeonato(ParametrosCampeonato parametrosCampeonato)
+        public Campeonato(ConexaoRavenDB conexao, ParametrosCampeonato parametrosCampeonato)
         {
+            _conexaoDB = conexao;
             _parametrosCampeonato = parametrosCampeonato;
             Inicializar();
         }
-
         private void Inicializar()
         {
             Potes = new Pote[_parametrosCampeonato.QuantidadePotes + 1];

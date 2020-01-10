@@ -63,6 +63,10 @@
               "version": "[2.1.0, )",
               "autoReferenced": true
             },
+            "RavenDB.Client": {
+              "target": "Package",
+              "version": "[4.2.4, )"
+            },
             "xunit": {
               "target": "Package",
               "version": "[2.4.1, )"
