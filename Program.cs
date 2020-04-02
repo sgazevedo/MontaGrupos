@@ -1,52 +1,35 @@
-﻿using System;
-using System.IO;
-using MontaGrupos.Core;
-using Microsoft.Extensions.Configuration;
+﻿using System.Linq;
+using System;
+using MontaGrupos.Dominio.Dtos;
+using MontaGrupos.Dominio.Repositorios;
+using MontaGrupos.Infra.Sistema;
+using MontaGrupos.Dominio.Entidades;
 
 namespace MontaGrupos
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static void Main()
         {
-            var configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json").Build();
-
-            var configuracaoRavenDB = new ConfiguracaoRavenDB();
-            configuration.Bind("ConfiguracaoRavenDB", configuracaoRavenDB);
-
-            var conexao = new ConexaoRavenDB(configuracaoRavenDB);
-            // conexao.Conectar();
-
             var campeonatos = new Campeonatos();
-            configuration.Bind("Campeonatos", campeonatos);
+            Configuracoes.Definir("Campeonatos", campeonatos);
+            MontarCampeonato(campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
 
-            MontarCampeonato(conexao, campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
-            // var campeonato = new Campeonato(conexao, campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
-            // campeonato.MontarPotes();
-            // Console.WriteLine(campeonato.ListarPotes());
-            // campeonato.MontarGrupos();
-            // Console.WriteLine(campeonato.ListarGrupos());
-            // campeonato.SalvarGrupos();
-
-
-            // //CargasSelecoes.CarregarSelecoes(conexao);
-            // var selecao = Repositorio.ObterSelecao(conexao, "Argentina");
-            // Console.WriteLine($"{selecao.Id} {selecao.Nome} {selecao.Confederacao} {selecao.Pontuacao}");
-
-            // conexao.Desconectar();
             Console.ReadKey();
         }
 
-        private static void MontarCampeonato(ConexaoRavenDB conexao, ParametrosCampeonato parametrosCampeonato)
+        private static void MontarCampeonato(ParametrosCampeonato parametrosCampeonato)
         {
-            var campeonato = new Campeonato(conexao, parametrosCampeonato);
-            campeonato.MontarPotes();
-            Console.WriteLine(campeonato.ListarPotes());
-            campeonato.MontarGrupos();
-            Console.WriteLine(campeonato.ListarGrupos());
-            campeonato.SalvarGrupos();
+            using (var selecaoRepositorio = new SelecaoRepositorio())
+            {
+                var listaTimes = selecaoRepositorio.ObterPorConfederacaoOrdenadoPorPontuacao(parametrosCampeonato.Confederacao).ToList();
+                var campeonato = new Campeonato(parametrosCampeonato, listaTimes);
+                campeonato.MontarPotes();
+                Console.WriteLine(campeonato.ListarPotes());
+                campeonato.MontarGrupos();
+                Console.WriteLine(campeonato.ListarGrupos());
+                campeonato.SalvarGrupos();
+            }
         }
     }
 }

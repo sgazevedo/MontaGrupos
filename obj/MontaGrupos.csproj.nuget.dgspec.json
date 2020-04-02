@@ -1,34 +1,35 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
+    "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
+    "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "projectUniqueName": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
         "projectName": "MontaGrupos",
-        "projectPath": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
-        "packagesPath": "C:\\Users\\Núbia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Núbia\\source\\repos\\MontaGrupos\\obj\\",
+        "projectPath": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\MontaGrupos.csproj",
+        "packagesPath": "C:\\Users\\silvio.azevedo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\silvio.azevedo\\source\\repos\\MontaGrupos\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\Núbia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\silvio.azevedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "netcoreapp2.1"
+          "netcoreapp3.1"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://pkgs.dev.azure.com/SkyInfoDevOps/_packaging/SkyInfo.Infra/nuget/v3/index.json": {}
         },
         "frameworks": {
-          "netcoreapp2.1": {
+          "netcoreapp3.1": {
             "projectReferences": {}
           }
         },
@@ -39,48 +40,41 @@
         }
       },
       "frameworks": {
-        "netcoreapp2.1": {
+        "netcoreapp3.1": {
           "dependencies": {
-            "FluentAssertions": {
+            "EPPlus": {
               "target": "Package",
-              "version": "[5.9.0, )"
+              "version": "[5.0.4, )"
             },
             "Microsoft.Extensions.Configuration.Binder": {
               "target": "Package",
-              "version": "[3.0.1, )"
+              "version": "[3.1.0, )"
             },
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
-              "version": "[3.0.1, )"
-            },
-            "Microsoft.NET.Test.Sdk": {
-              "target": "Package",
-              "version": "[16.3.0-preview-20190808-03, )"
-            },
-            "Microsoft.NETCore.App": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[2.1.0, )",
-              "autoReferenced": true
+              "version": "[3.1.0, )"
             },
             "RavenDB.Client": {
               "target": "Package",
               "version": "[4.2.4, )"
-            },
-            "xunit": {
-              "target": "Package",
-              "version": "[2.4.1, )"
-            },
-            "xunit.runner.visualstudio": {
-              "target": "Package",
-              "version": "[2.4.1, )"
             }
           },
           "imports": [
-            "net461"
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
           ],
           "assetTargetFallback": true,
-          "warn": true
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
