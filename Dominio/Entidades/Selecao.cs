@@ -1,4 +1,7 @@
+using System.Xml.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Collections.Generic;
+using System.Linq;
 using MontaGrupos.Dominio.Dtos;
 
 namespace MontaGrupos.Dominio.Entidades
@@ -28,7 +31,13 @@ namespace MontaGrupos.Dominio.Entidades
             HistoricoPontuacao = new List<HistoricoPontuacao>();
         }
 
-        public void AdicionarHistorico(HistoricoPontuacao historicoPontuacao) =>
+        public void AdicionarHistorico(HistoricoPontuacao historicoPontuacao)
+        {
+            var historicoPontuacaoJaCadastrado = HistoricoPontuacao.FirstOrDefault(x =>
+                x.Descricao == historicoPontuacao.Descricao);
+            if (historicoPontuacaoJaCadastrado != default)
+                HistoricoPontuacao.Remove(historicoPontuacaoJaCadastrado);
             HistoricoPontuacao.Add(historicoPontuacao);
+        }
     }
 }

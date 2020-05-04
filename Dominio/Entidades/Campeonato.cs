@@ -1,3 +1,5 @@
+using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using MontaGrupos.Dominio.Dtos;
 using MontaGrupos.Infra.Arquivos;
@@ -7,10 +9,10 @@ namespace MontaGrupos.Dominio.Entidades
     public class Campeonato
     {
         private readonly ParametrosCampeonato parametrosCampeonato;
-        private readonly IList<Selecao> listaTimes;
+        private readonly IEnumerable<Selecao> listaTimes;
         public Pote[] Potes { get; private set; }
         public Grupo[] Grupos { get; private set; }
-        public Campeonato(ParametrosCampeonato parametrosCampeonato, IList<Selecao> listaTimes)
+        public Campeonato(ParametrosCampeonato parametrosCampeonato, IEnumerable<Selecao> listaTimes)
         {
             this.parametrosCampeonato = parametrosCampeonato;
             this.listaTimes = listaTimes;
@@ -107,6 +109,14 @@ namespace MontaGrupos.Dominio.Entidades
         {
             var nomeArquivo = @"~/" + parametrosCampeonato.Nome + ".txt";
             Texto.Salvar(nomeArquivo, new string[] { ListarGrupos() });
+        }
+
+        public void Montar()
+        {
+            MontarPotes();
+            System.Console.WriteLine(ListarPotes());
+            MontarGrupos();
+            System.Console.WriteLine(ListarGrupos());
         }
     }
 }

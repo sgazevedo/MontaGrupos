@@ -1,9 +1,12 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using System;
 using MontaGrupos.Dominio.Dtos;
 using MontaGrupos.Dominio.Repositorios;
 using MontaGrupos.Infra.Sistema;
 using MontaGrupos.Dominio.Entidades;
+using MontaGrupos.Dominio.Comandos.Cargas;
+using MontaGrupos.Dominio.Comandos.Campeonatos;
 
 namespace MontaGrupos
 {
@@ -13,23 +16,21 @@ namespace MontaGrupos
         {
             var campeonatos = new Campeonatos();
             Configuracoes.Definir("Campeonatos", campeonatos);
-            MontarCampeonato(campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
+            MontarCampeonato.Executar(campeonatos.CampeonatosSelecoes.CopaConcacafEliminatorias);
+
+            // using (var selecaoRepositorio = new SelecaoRepositorio())
+            // {
+            //     var selecoes = selecaoRepositorio.ObterPorConfederacaoOrdenadoPorPontuacao(Confederacao.UEFA);
+            //     foreach (var selecao in selecoes)
+            //         Console.WriteLine($"{selecao.Nome} {selecao.Pontuacao}");
+            // }
+
+            //MontarCopaDoMundo.Executar();
+
+
+
 
             Console.ReadKey();
-        }
-
-        private static void MontarCampeonato(ParametrosCampeonato parametrosCampeonato)
-        {
-            using (var selecaoRepositorio = new SelecaoRepositorio())
-            {
-                var listaTimes = selecaoRepositorio.ObterPorConfederacaoOrdenadoPorPontuacao(parametrosCampeonato.Confederacao).ToList();
-                var campeonato = new Campeonato(parametrosCampeonato, listaTimes);
-                campeonato.MontarPotes();
-                Console.WriteLine(campeonato.ListarPotes());
-                campeonato.MontarGrupos();
-                Console.WriteLine(campeonato.ListarGrupos());
-                campeonato.SalvarGrupos();
-            }
         }
     }
 }

@@ -57,13 +57,13 @@ namespace MontaGrupos.Dominio.Servicos.Cargas
                         new RegistroPontuacao()
                         {
                             Id = planilhaExcel.Obter(linha, "A"),
-                            PontosGanhos = planilhaExcel.Obter(linha, "B"),
-                            Vitorias = planilhaExcel.Obter(linha, "C"),
-                            Empates = planilhaExcel.Obter(linha, "D"),
-                            Derrotas = planilhaExcel.Obter(linha, "E"),
-                            GolsPro = planilhaExcel.Obter(linha, "F"),
-                            GolsContra = planilhaExcel.Obter(linha, "G"),
-                            SaldoGols = planilhaExcel.Obter(linha, "H")
+                            PontosGanhos = Convert.ToInt32(planilhaExcel.Obter(linha, "B")),
+                            Vitorias = Convert.ToInt32(planilhaExcel.Obter(linha, "C")),
+                            Empates = Convert.ToInt32(planilhaExcel.Obter(linha, "D")),
+                            Derrotas = Convert.ToInt32(planilhaExcel.Obter(linha, "E")),
+                            GolsPro = Convert.ToInt32(planilhaExcel.Obter(linha, "F")),
+                            GolsContra = Convert.ToInt32(planilhaExcel.Obter(linha, "G")),
+                            SaldoGols = Convert.ToInt32(planilhaExcel.Obter(linha, "H"))
                         }
                     );
                 }
@@ -79,27 +79,19 @@ namespace MontaGrupos.Dominio.Servicos.Cargas
     public class RegistroPontuacao
     {
         public string Id { get; set; }
-        public string PontosGanhos { get; set; }
-        public string Vitorias { get; set; }
-        public string Empates { get; set; }
-        public string Derrotas { get; set; }
-        public string GolsPro { get; set; }
-        public string GolsContra { get; set; }
-        public string SaldoGols { get; set; }
+        public int PontosGanhos { get; set; }
+        public int Vitorias { get; set; }
+        public int Empates { get; set; }
+        public int Derrotas { get; set; }
+        public int GolsPro { get; set; }
+        public int GolsContra { get; set; }
+        public int SaldoGols { get; set; }
         public int Pontuacao
         {
-            get
-            {
-                var somaPontos = 0;
-                int result;
-                int.TryParse(PontosGanhos, out result);
-                somaPontos += result;
-                int.TryParse(Vitorias, out result);
-                somaPontos += result;
-                int.TryParse(GolsPro, out result);
-                somaPontos += result;
-                return somaPontos;
-            }
+            get => SomaDePontos();
         }
+
+        private int SomaDePontos() =>
+            PontosGanhos + (Vitorias * 2) + GolsPro;
     }
 }

@@ -26,6 +26,22 @@ using MontaGrupos.Dominio.Dtos;
 // importarPontuacoes.Executar(Confederacao.UEFA, "01_Eurocopa_FaseFinal");
 // importarPontuacoes.Executar(Confederacao.UEFA, "01_Eurocopa_FaseGrupos");
 
+// importarPontuacoes.Executar(Confederacao.AFC, "01_CopaDoMundo_FaseEliminatorias");
+
+// importarPontuacoes.Executar(Confederacao.CAF, "01_CopaDoMundo_FaseEliminatorias");
+
+// importarPontuacoes.Executar(Confederacao.CONCACAF, "01_CopaDoMundo_FaseEliminatorias");
+
+// importarPontuacoes.Executar(Confederacao.CONMEBOL, "01_CopaDoMundo_FaseEliminatorias");
+
+// importarPontuacoes.Executar(Confederacao.UEFA, "01_CopaDoMundo_FaseEliminatorias");
+
+// importarPontuacoes.Executar(Confederacao.FIFA, "01_CopaDasConfederações_FaseGrupos");
+// importarPontuacoes.Executar(Confederacao.FIFA, "01_CopaDasConfederações_FaseFinal");
+
+// importarPontuacoes.Executar(Confederacao.FIFA, "01_CopaDoMundo_FaseGrupos");
+// importarPontuacoes.Executar(Confederacao.FIFA, "01_CopaDoMundo_FaseFinal");
+
 namespace MontaGrupos.Dominio.Comandos.Cargas
 {
     public class ImportarPontuacoes

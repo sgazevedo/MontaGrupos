@@ -1,5 +1,3 @@
-using System.Collections;
-using System;
 using MontaGrupos.Infra.BancoDeDados;
 using System.Collections.Generic;
 using Raven.Client.Documents.Linq;
@@ -31,9 +29,26 @@ namespace MontaGrupos.Dominio.Repositorios
             base.Selecionar().Where(x => x.Confederacao == confederacao);
 
         public IEnumerable<Selecao> ObterPorConfederacaoOrdenadoPorPontuacao(Confederacao confederacao) =>
-            ObterPorConfederacao(confederacao).OrderByDescending(x => x.Pontuacao);
+            ObterOrdenacaoPorPontuacaoENome(ObterPorConfederacao(confederacao));
 
         public IEnumerable<Selecao> ObterTodasOrdenadoPorPontuacao() =>
-            base.Selecionar().OrderByDescending(x => x.Pontuacao);
+            ObterOrdenacaoPorPontuacaoENome(base.Selecionar());
+
+        public IEnumerable<Selecao> ObterSelecoes(IEnumerable<string> selecoes)
+        {
+            var listaDeSelecoes = new List<Selecao>();
+            foreach (var selecao in selecoes)
+            {
+                var selecaoDaLista = ObterPorNome(selecao);
+                if (selecaoDaLista != null)
+                    listaDeSelecoes.Add(selecaoDaLista);
+            }
+            return ObterOrdenacaoPorPontuacaoENome(listaDeSelecoes);
+        }
+
+        private IEnumerable<Selecao> ObterOrdenacaoPorPontuacaoENome(IEnumerable<Selecao> listaDeSelecoes) =>
+            from selecao in listaDeSelecoes
+            orderby selecao.Pontuacao descending, selecao.Nome
+            select selecao;
     }
 }

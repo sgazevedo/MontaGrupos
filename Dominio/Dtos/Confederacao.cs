@@ -4,7 +4,7 @@ namespace MontaGrupos.Dominio.Dtos
     public enum Confederacao
     {
         INDEFINIDO,
-        TODAS,
+        FIFA,
         AFC,
         CAF,
         CONCACAF,
